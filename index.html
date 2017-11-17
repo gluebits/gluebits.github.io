@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Civ Selector Extraordinaire</title>
+  
+  <style>
+  body{
+ font-family: "verdana";
+ background-color: #111;
+ padding-left: 40px;
+ color: #999;
+}
+
+#glue {
+ color: #cc33ff;
+ text-shadow: 0 0 5px rgba(0,160,240,1);
+}
+
+#godc {
+ color: green;
+}
+
+#strongc {
+ color: #00cc00;
+}
+
+#decentc {
+ color: yellow;
+}
+
+#weakc {
+ color: orange;
+}
+
+#awefulc {
+ color: #f47a42;
+}
+
+#jokec {
+ color: red;
+}
+  </style>
+  
+  
+</head>
+<body>
+ <h2>
+  Civ Selector Extraordinaire
+ </h2>
+  <p>
+   Available on the internet near you!<br>Presented by the ever <i>benevolent</i> and <i>omnipotent</i> <b><span id="glue">gluebits</span></b>.
+   <br>Using FilthyRobot's <i>official</i> tier ranking.
+  </p>
+  <p>
+   <input type="checkbox" id="god">I. God tier<br>
+   <input type="checkbox" id="strong">II. Strong tier<br>
+   <input type="checkbox" id="decent">III. Decent tier<br>
+   <input type="checkbox" id="weak">IV. Weak tier<br>
+   <input type="checkbox" id="aweful">V. Awful tier<br>
+   <input type="checkbox" id="joke">VI. Joke tier<br>
+   <button onclick="submit()">Calculate</button>
+  </p>
+ <p id="template">
+  
+ </p>
+ 
+ <script>
+ 
+var response, godw, strongw, decentw, weakw, awefulw, jokew;
+
+godw=0.1;
+strongw=0.08;
+decentw=0.12;
+weakw=0.5;
+awefulw=0.06;
+jokew=0.02;
+counter=0;
+//ff0080
+selector=[];
+random=[];
+
+function submit(){
+ selector=[];
+ random=[];
+ response="";
+ god1=document.getElementById('god').checked;
+ strong2=document.getElementById('strong').checked;
+ decent3=document.getElementById('decent').checked;
+ weak4=document.getElementById('weak').checked;
+ aweful5=document.getElementById('aweful').checked;
+ joke6=document.getElementById('joke').checked;
+ 
+ if(god1+strong2+decent3+weak4+aweful5+joke6 === 0){
+  selector[0]="";
+  selector[1]="";
+  selector[2]="";
+  document.getElementById('template').innerHTML="No civs selected";
+  return;
+ }
+ 
+ if(god1+strong2+decent3+weak4+aweful5+joke6 == 1 && joke6 == 1){
+  selector[0]="<br>";
+ }
+ 
+ 
+ if(god1==1){
+  god1=" <span id=\"godc\">god</span>";
+  selector[0]="<span id=\"godc\"><br>Babylon</span>";
+  selector[1]="<span id=\"godc\"><br>Egypt</span>";
+  selector[2]="<span id=\"godc\"><br>England</span>";
+  selector[3]="<span id=\"godc\"><br>Ethiopia</span>";
+  selector[4]="<span id=\"godc\"><br>Inca</span>";
+  selector[5]="<span id=\"godc\"><br>Korea</span>";
+  selector[6]="<span id=\"godc\"><br>Persia</span>";
+  selector[7]="<span id=\"godc\"><br>Poland</span>";
+  selector[8]="<span id=\"godc\"><br>Huns</span>";
+  selector[9]="<span id=\"godc\"><br>Maya</span>";
+ }else{
+  god1=" -";
+ }
+ 
+ if(strong2==1){
+  strong2=" <span id=\"strongc\">strong</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Arabia</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Aztec</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>China</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Greece</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Russia</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Shoshone</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Spain</span>";
+  selector[selector.length]="<span id=\"strongc\"><br>Zulu</span></span>";
+ }else{
+  strong2=" -";
+ }
+ 
+ if(decent3 == 1){
+  decent3=" <span id=\"decentc\">decent</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Byzantium</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Celts</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Deutschland</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>India</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Indonesia</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Mongolia</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Rome</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Siam</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Songhai</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>America</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Osterreich</span>";
+  selector[selector.length]="<span id=\"decentc\"><br>Denmark</span>";
+ }else{
+  decent3=" -";
+ }
+ 
+ if(weak4 == 1){
+  weak4=" <span id=\"weakc\">weak</span>";
+  selector[selector.length]="<span id=\"weakc\"><br>Sweden</span>";
+  selector[selector.length]="<span id=\"weakc\"><br>Brazil</span>";
+  selector[selector.length]="<span id=\"weakc\"><br>Assyria</span>";
+  selector[selector.length]="<span id=\"weakc\"><br>Morocco</span>";
+  selector[selector.length]="<span id=\"weakc\"><br>Portugal</span>";
+ }else{
+  weak4=" -";
+ }
+ 
+ if(aweful5 == 1){
+  aweful5=" <span id=\"awefulc\">awful</span>";
+  selector[selector.length]="<span id=\"awefulc\"><br>Carthage</span>";
+  selector[selector.length]="<span id=\"awefulc\"><br>Netherlands</span>";
+  selector[selector.length]="<span id=\"awefulc\"><br>France</span>";
+  selector[selector.length]="<span id=\"awefulc\"><br>Japan</span>";
+  selector[selector.length]="<span id=\"awefulc\"><br>Polynesia</span>";
+  selector[selector.length]="<span id=\"awefulc\"><br>Ottomans</span>";
+ }else{
+  aweful5=" -";
+ }
+ 
+ if(joke6 == 1){
+  joke6=" <span id=\"jokec\">joke</span>";
+  selector[selector.length]="<span id=\"jokec\"><br>Iroquois</span>";
+  selector[selector.length]="<span id=\"jokec\"><br>Venice</span>";
+ }else{
+  joke6=" -";
+ }
+ 
+ //RANDOMIZER
+ for(j = 0; j < 3; j++){
+ // randomMaster=Math.random();
+  random[j]=Math.floor(Math.random()*selector.length);
+  if(random[0] == random[1] || random[0] == random[2]){
+   j--;
+   
+  }
+  if(random[1] == random[2] && j == 2){
+   j=1;
+  }
+ }
+ //alert(random[2]);
+ 
+ 
+ for(i = 0; i < selector.length; i++){
+  response+=selector[i]+" | "+i;
+ }
+ 
+ 
+ 
+ 
+ 
+ document.getElementById('template').innerHTML="Selected:"+god1+strong2+decent3+weak4+aweful5+joke6+"<br>Total: "+selector.length+"<br>Your civs are: <br>"+selector[random[0]]+selector[random[1]]+selector[random[2]]+"<br><hr color>"+response;
+}
+
+
+
+
+
+
+
+
+
+ </script>
+ 
+</body>
+</html>
+
+
+
+
+
